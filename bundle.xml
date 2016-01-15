@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adapt_framework>
+  <bundle>
+    <name>privacy</name>
+    <label>Privacy settings</label>
+    <version>1.0.0</version>
+    <type>extension</type>
+    <namespace>\adapt\privacy</namespace>
+    <description>Privacy settings</description>
+    <copyright>2015 Adapt Framework</copyright>
+    <depends_on>
+      <bundle>
+        <name>adapt</name>
+        <version>1.0</version>
+      </bundle>
+    </depends_on>
+  </bundle>
+</adapt_framework>
