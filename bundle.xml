@@ -82,19 +82,17 @@
             <data_type>text</data_type>
           </field>
           <record>
-            <bundle_name>privacy</bundle_name>
-            <permission_id get-from="permission" where-name-is="perm_privacy_public" />
+            <permission_id get-from="permission" where-name-is="perm_privacy_private" />
             <priority>1</priority>
-            <name>private</name>
-            <label>Private</label>
+            <name>public</name>
+            <label>Public</label>
             <description />
           </record>
           <record>
-            <bundle_name>privacy</bundle_name>
-            <permission_id get-from="permission" where-name-is="perm_privacy_private" />
+            <permission_id get-from="permission" where-name-is="perm_privacy_public" />
             <priority>99</priority>
-            <name>public</name>
-            <label>Public</label>
+            <name>private</name>
+            <label>Private</label>
             <description />
           </record>
         </table>
