@@ -7,12 +7,98 @@
     <type>extension</type>
     <namespace>\adapt\privacy</namespace>
     <description>Privacy settings</description>
-    <copyright>2015 Adapt Framework</copyright>
+    <copyright>2015-16 Adapt Framework</copyright>
     <depends_on>
       <bundle>
         <name>adapt</name>
+        <version>2.0</version>
+      </bundle>
+      <bundle>
+        <name>roles_and_permissions</name>
         <version>1.0</version>
       </bundle>
     </depends_on>
+    <schema>
+      <add>
+        <table name="permission_category">
+          <record>
+            <bundle_name>privacy</bundle_name>
+            <name>privacy_options</name>
+            <label>Privacy options</label>
+            <description />
+          </record>
+        </table>
+        <table name="permission">
+          <record>
+            <permission_category_id get-from="permission_category" where-name-is="privacy_options" />
+            <bundle_name>privacy</bundle_name>
+            <php_key>PERM_PRIVACY_PRIVATE</php_key>
+            <name>perm_privacy_private</name>
+            <label>Can set items to private</label>
+            <description>Allows the user to make items private</description>
+          </record>
+          <record>
+            <permission_category_id get-from="permission_category" where-name-is="privacy_options" />
+            <bundle_name>privacy</bundle_name>
+            <php_key>PERM_PRIVACY_PUBLIC</php_key>
+            <name>perm_privacy_public</name>
+            <label>Can set items to public</label>
+            <description>Allows the user to make items public</description>
+          </record>
+        </table>
+        <table name="privacy">
+          <field name="privacy_id" key="primary" auto-increment="Yes">
+            <label>Privacy #</label>
+            <data_type>bigint</data_type>
+          </field>
+          <field name="bundle_name">
+            <label>Name</label>
+            <data_type>varchar</data_type>
+            <max_length>128</max_length>
+            <nullable>No</nullable>
+          </field>
+          <field name="permission_id" key="foreign" referenced-table-name="permission" referenced-field-name="permission_id">
+            <data_type>bigint</data_type>
+            <label>Permission #</label>
+          </field>
+          <field name="priority">
+            <label>Priority</label>
+            <data_type>int</data_type>
+          </field>
+          <field name="name">
+            <label>Name</label>
+            <data_type>varchar</data_type>
+            <max_length>128</max_length>
+            <nullable>No</nullable>
+          </field>
+          <field name="label">
+            <label>Label</label>
+            <data_type>varchar</data_type>
+            <max_length>128</max_length>
+            <nullable>No</nullable>
+          </field>
+          <field name="description">
+            <label>Description</label>
+            <data_type>text</data_type>
+          </field>
+          <record>
+            <bundle_name>privacy</bundle_name>
+            <permission_id get-from="permission" where-name-is="perm_privacy_public" />
+            <priority>1</priority>
+            <name>private</name>
+            <label>Private</label>
+            <description />
+          </record>
+          <record>
+            <bundle_name>privacy</bundle_name>
+            <permission_id get-from="permission" where-name-is="perm_privacy_private" />
+            <priority>99</priority>
+            <name>public</name>
+            <label>Public</label>
+            <description />
+          </record>
+        </table>
+      </add>
+    </schema>
   </bundle>
 </adapt_framework>
