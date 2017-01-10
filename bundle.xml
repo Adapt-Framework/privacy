@@ -6,6 +6,8 @@
     <version>1.0.0</version>
     <type>extension</type>
     <namespace>\adapt\privacy</namespace>
+    <version_status>release</version_status>
+    <availability>public</availability>
     <description>Privacy settings</description>
     <copyright>2015-16 Adapt Framework</copyright>
     <depends_on>
