@@ -3,7 +3,7 @@
   <bundle>
     <name>privacy</name>
     <label>Privacy settings</label>
-    <version>1.0.0</version>
+    <version>0.1.0</version>
     <type>extension</type>
     <namespace>\adapt\privacy</namespace>
     <version_status>release</version_status>
@@ -17,7 +17,7 @@
       </bundle>
       <bundle>
         <name>roles_and_permissions</name>
-        <version>1.0</version>
+        <version>0.9</version>
       </bundle>
     </depends_on>
     <schema>
